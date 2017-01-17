@@ -26,7 +26,7 @@ to display a collection of resources in an HTML table.
         cell-label--<%= attr_type.html_class %>
         cell-label--<%= collection_presenter.ordered_html_class(attr_name) %>
         " scope="col">
-        <%= link_to(params.merge(
+        <%= link_to(sanitized_order_params.merge(
           collection_presenter.order_params_for(attr_name)
         )) do %>
         <%= t(
@@ -60,7 +60,11 @@ to display a collection of resources in an HTML table.
           >
         <% collection_presenter.attributes_for(resource).each do |attribute| %>
           <td class="cell-data cell-data--<%= attribute.html_class %>">
-            <%= render_field attribute %>
+            <a href="<%= polymorphic_path([namespace, resource]) -%>"
+               class="action-show table__link-plain"
+               >
+              <%= render_field attribute %>
+            </a>
           </td>
         <% end %>
 
