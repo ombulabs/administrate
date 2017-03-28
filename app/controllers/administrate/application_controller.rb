@@ -7,31 +7,35 @@ module Administrate
       resources = Administrate::Search.new(resource_resolver, search_term).run
       resources = order.apply(resources)
       resources = resources.page(params[:page]).per(records_per_page)
-      page = Administrate::Page::Collection.new(dashboard, order: order)
+      @_admin_page = Administrate::Page::Collection.new(dashboard, order: order)
 
       render locals: {
         resources: resources,
         search_term: search_term,
-        page: page,
+        page: @_admin_page,
         show_search_bar: show_search_bar?
       }
     end
 
     def show
+      @_admin_page = Administrate::Page::Show.new(dashboard, requested_resource)
       render locals: {
-        page: Administrate::Page::Show.new(dashboard, requested_resource),
+        page: @_admin_page,
       }
     end
 
     def new
+      @_admin_page = Administrate::Page::Form.new(dashboard, resource_class.new)
+
       render locals: {
-        page: Administrate::Page::Form.new(dashboard, resource_class.new),
+        page: @_admin_page,
       }
     end
 
     def edit
+      @_admin_page = Administrate::Page::Form.new(dashboard, requested_resource)
       render locals: {
-        page: Administrate::Page::Form.new(dashboard, requested_resource),
+        page: @_admin_page,
       }
     end
 
@@ -44,8 +48,9 @@ module Administrate
           notice: translate_with_resource("create.success"),
         )
       else
+        @_admin_page = Administrate::Page::Form.new(dashboard, resource)
         render :new, locals: {
-          page: Administrate::Page::Form.new(dashboard, resource),
+          page: @_admin_page,
         }
       end
     end
@@ -57,8 +62,9 @@ module Administrate
           notice: translate_with_resource("update.success"),
         )
       else
+        @_admin_page = Administrate::Page::Form.new(dashboard, requested_resource)
         render :edit, locals: {
-          page: Administrate::Page::Form.new(dashboard, requested_resource),
+          page: @_admin_page,
         }
       end
     end
