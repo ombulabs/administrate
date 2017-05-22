@@ -1,10 +1,7 @@
-require "bourbon"
 require "datetime_picker_rails"
 require "jquery-rails"
 require "kaminari"
 require "momentjs-rails"
-require "neat"
-require "normalize-rails"
 require "sass-rails"
 require "selectize-rails"
 require "sprockets/railtie"
@@ -16,6 +13,7 @@ require "administrate/order"
 require "administrate/resource_resolver"
 require "administrate/search"
 require "administrate/namespace"
+require "administrate/namespace/resource"
 
 module Administrate
   class Engine < ::Rails::Engine
@@ -23,8 +21,6 @@ module Administrate
 
     @@javascripts = []
     @@stylesheets = []
-
-    Engine.config.assets.precompile << /\.(?:svg)\z/
 
     def self.add_javascript(script)
       @@javascripts << script

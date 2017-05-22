@@ -153,7 +153,10 @@ describe Administrate::Generators::DashboardGenerator, :generator do
           ActiveRecord::Schema.define do
             create_table(:users) { |t| t.boolean :active }
           end
-          class User < ActiveRecord::Base; end
+
+          class User < ActiveRecord::Base
+            reset_column_information
+          end
 
           run_generator ["user"]
           load file("app/dashboards/user_dashboard.rb")
@@ -270,7 +273,7 @@ describe Administrate::Generators::DashboardGenerator, :generator do
           end
           class User < ActiveRecord::Base; end
           class Invitation < ActiveRecord::Base
-            belongs_to :sender, class_name: User
+            belongs_to :sender, class_name: "User"
             belongs_to :recipient, class_name: "User"
           end
 

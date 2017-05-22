@@ -6,8 +6,8 @@ ja:
       destroy: 削除
       edit: 編集
       show: 参照
-      new: 目新しい
-      back: バック
+      new: 新規
+      back: 戻る
     controller:
       create:
         success: "%{resource}を作成しました。"
@@ -23,3 +23,6 @@ ja:
         not_supported: フォームでは「多：多」の関連をサポートしていません。
       has_one:
         not_supported: フォームでは「１：１」の関連をサポートしていません。
+    search: 
+      placeholder: サーチ
+      hint: 検索するにはEnterキーを押します

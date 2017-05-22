@@ -11,12 +11,13 @@ $(function() {
       }
 
       var dataUrl = $(event.target).closest("tr").data("url");
-      if (dataUrl) {
+      var selection = window.getSelection().toString();
+      if (selection.length === 0 && dataUrl) {
         window.location = dataUrl;
       }
     }
   };
 
-  $("table").on("click", ".table__row", visitDataUrl);
-  $("table").on("keydown", ".table__row", visitDataUrl);
+  $("table").on("click", ".js-table-row", visitDataUrl);
+  $("table").on("keydown", ".js-table-row", visitDataUrl);
 });

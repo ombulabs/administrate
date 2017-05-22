@@ -7,7 +7,7 @@ pl:
       edit: Edytuj
       show: Wyświetl
       new: Nowy
-      back: Plecy
+      back: Wstecz
     controller:
       create:
         success: "Zasób %{resource} został pomyślnie utworzony."
@@ -23,3 +23,6 @@ pl:
         not_supported: Relacje polimorficzne nie są obsługiwane.
       has_one:
         not_supported: Relacje jeden-do-jednego nie są obsługiwane.
+    search: 
+      placeholder: Szukaj
+      hint: Wciśnij enter, żeby wyszukać
