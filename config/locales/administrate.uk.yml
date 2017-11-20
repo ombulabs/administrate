@@ -19,8 +19,6 @@ uk:
       has_many:
         more: "%{count} із %{total_count}"
         none: Немає
-      has_one:
-        not_supported: HasOne відношення у формах не підтримуються.
     search:
       clear: Очистити пошук
       label: пошук %{resource}

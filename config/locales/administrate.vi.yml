@@ -19,8 +19,6 @@ vi:
       has_many:
         more: "%{count} trên %{total_count}"
         none: Không
-      has_one:
-        not_supported: Quan hệ HasOne chưa được hỗ trợ.
     search:
       clear: Tìm kiếm rõ ràng
       label: Tìm kiếm %{resource}

@@ -20,8 +20,6 @@ pt:
       has_many:
         more: "Mostrando %{count} de %{total_count}"
         none: Nenhum
-      has_one:
-        not_supported: Relações um para muitos nos formulários não são suportadas.
     search:
       clear: Limpar pesquisa
       label: Pesquisa %{resource}
