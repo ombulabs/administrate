@@ -5,6 +5,7 @@ gemspec
 gem "administrate-field-image"
 gem "autoprefixer-rails"
 gem "faker"
+gem "globalid"
 gem "pg"
 gem "redcarpet"
 gem "sentry-raven"
@@ -16,7 +17,7 @@ group :development, :test do
   gem "bundler-audit", require: false
   gem "byebug"
   gem "dotenv-rails"
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
   gem "i18n-tasks"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.5.0"

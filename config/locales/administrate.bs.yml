@@ -1,0 +1,23 @@
+bs:
+  administrate:
+    actions:
+      confirm: Jeste li sigurni?
+      destroy: Izbrisati
+      edit: Izmjena
+      show: Pregled
+      new: Novi
+      back: Nazad
+    controller:
+      create:
+        success: "%{resource} je uspješno kreiran."
+      destroy:
+        success: "%{resource} je uspješno izbrisan."
+      update:
+        success: "%{resource} je uspješno izmijenjen."
+    fields:
+      has_many:
+        more: Prikazuje %{count} od %{total_count}
+        none: Niko
+    search:
+      clear: Izbriši pretraživanje
+      label: Pretraga %{resource}

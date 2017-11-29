@@ -44,13 +44,14 @@ To accomplish these goals, Administrate follows a few guiding principles:
 
 Administrate supports Rails from 4.2, up to 5.0 and beyond.
 
-Add Administrate to your Gemfile:
+Add Administrate to your Gemfile and re-bundle:
 
 ```ruby
 gem "administrate"
 ```
 
-Re-bundle, then run the installer:
+The included installer will create dashboards for each model in your
+app, complete with routes:
 
 ```bash
 $ rails generate administrate:install
@@ -59,9 +60,12 @@ $ rails generate administrate:install
 Restart your server, and visit http://localhost:3000/admin
 to see your new dashboard in action.
 
+For more detailed instructions or to make it work with Rails API-only applications, please go through the ['Getting Started` guide](https://administrate-prototype.herokuapp.com/getting_started).
+
+
 ## Create Additional Dashboards
 
-In order to create additional dashboards, pass in the resource name to 
+In order to create additional dashboards, pass in the resource name to
 the dashboard generator. A dashboard and controller will be created.
 
 ```bash
