@@ -32,7 +32,16 @@ All fields of has_one relationship would be rendered
         ) %>
       </dt>
       <dd class="attribute-data attribute-data--<%= attribute.html_class %>">
-        <%= attribute.data %>
+        <% if attribute.data.respond_to? :each %>
+          <%= render(
+            "collection",
+            collection_presenter: attribute.associated_collection,
+            resources: attribute.resources(params[attribute.name]),
+            table_title: attribute.name
+          ) %>
+        <% else %>
+          <%= attribute.data %>
+        <% end %>
       </dd>
       </div>
     <% end -%>
